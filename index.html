@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimSim85</title>
+    <link rel="stylesheet" href="./style.css">
+    <script type="module" defer src="./src/main.js"></script>
+    <script src="./cm/codemirror-5.65.0/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="./cm/codemirror-5.65.0/lib/codemirror.css">
+    <script src="./nearely/nearely.js"></script>
+    <script src="./src/grammar/grammar.js"></script>
+    <script src="./cm/codemirror-5.65.0/mode/simple.js"></script>
+    <script src="./cm//codemirror-5.65.0/mode/assembly8085.js"></script>
+</head>
+
+<body>
+    <div class="app">
+        <div class="memory">
+            <div class="memory-dash-container">
+                <div id="reset-mem" class="mem-rst-btn">Reset</div>
+                <div class="memory-address-input">
+                    <span class="loc-text">Location</span>
+                    <input type="text" name="memory-address-input" id="memory-address-input" class="ip-input"
+                        value="0000" dir="rtl" maxlength="4" placeholder="0000">
+                    <span class="loc-text">H</span>
+                </div>
+            </div>
+            <div class="memory-container" id="memory-container">
+
+            </div>
+        </div>
+
+        <div class="editor">
+            <div class="exec-btns-container">
+                <button id="assemble-btn" class="exec-btn">Assemble</button>
+                <button id="run-btn" class="exec-btn">Run</button>
+                <button id="start-db-btn" class="exec-btn">StartDebugger</button>
+                <button id="execute-next-btn" class="exec-btn" disabled>Next</button>
+                <button id="move-prev-btn" class="exec-btn" disabled>Prev</button>
+                <button id="help-btn" class="exec-btn">Help</button>
+                <button id="gh-btn" class="exec-btn">Github</button>
+
+            </div>
+            <div class="opcode-container hidden" id="help-container">
+                <span class="close-opcode" id="close-help">x</span>
+                <div class="opcode-text">
+                    <ol>
+                        <li>The Program is loaded at 0x0000</li>
+                        <li>Use '#' before lable for jmp like instructions (ex: jmp #loop )</li>
+                        <li>For any issues and queries visit <a href="https://github.com/ayushk7/simsim85" target="_blank">Gihub</a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="editor-container" id="editor-container">
+
+            </div>
+            <div class="opcode-container hidden" id="opcode-container-box">
+                <span class="close-opcode" id="close-opcode">x</span>
+                <div class="opcode-text"></div>
+            </div>
+
+
+        </div>
+        <div class="pws-panels">
+            <div class="psw-panel">
+                <button id="reset-regs" class="rst-btn">Reset</button>
+                <div class="registers-view-panel" id="registers-view-panel">
+                </div>
+            </div>
+            <div class="psw-panel">
+                <button id="reset-flags" class="rst-btn" style="margin-bottom: 0.5rem;">Reset</button>
+                <div class="flag-view-panel" id="flag-view-panel">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
